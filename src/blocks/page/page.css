@@ -1,0 +1,23 @@
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    background-color: #000000;
+
+    max-width: 880px;
+    margin: 0 auto 0 auto;
+    font-family: Inter, Arial sans-serif;
+    font-style: normal;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+
+    text-rendering: optimizeLegibility;
+}

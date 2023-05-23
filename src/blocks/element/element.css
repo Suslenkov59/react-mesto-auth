@@ -1,0 +1,9 @@
+.element {
+    display: grid;
+    grid-template-rows: minmax(min-content, max-content) minmax(min-content, 79px);
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    position: relative;
+
+    overflow: hidden;
+}

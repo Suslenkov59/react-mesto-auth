@@ -1,0 +1,32 @@
+.profile__edit-button {
+    grid-column-start: 2;
+    grid-row-start: -3;
+    grid-row-end: -2;
+
+    align-self: end;
+    justify-self: end;
+
+    margin-bottom: 8px;
+    width: 24px;
+    height: 24px;
+
+    background: url("../../../images/penButton.svg") no-repeat;
+    background-position: center;
+    border: 1px solid #FFFFFF;
+
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.profile__edit-button:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+    .profile__edit-button {
+        margin-bottom: 6px;
+        background-size: 7.5px;
+        width: 18px;
+        height: 18px;
+    }
+}
