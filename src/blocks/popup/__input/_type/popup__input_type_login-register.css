@@ -1,0 +1,22 @@
+.popup__input_type_login-register {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 0;
+    min-height: 27px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    color: #fff;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+}
+
+.popup__input_type_login-register::placeholder {
+    color: #ccc;
+}
+
+.popup__input_type_login-register:last-of-type {
+    margin-bottom: 0;
+}

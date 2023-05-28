@@ -1,0 +1,17 @@
+.auth-page__link {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.auth-page__link:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
