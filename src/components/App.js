@@ -82,7 +82,7 @@ function App() {
         auth.authorize(password, email)
             .then((res) => {
                 if (res) {
-                    setEmail(email)
+                    setEmail( email)
                     setLoggedIn(true)
                     navigate("/")
                 }
