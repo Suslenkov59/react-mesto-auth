@@ -81,8 +81,7 @@ function App() {
     function handleAuth(password, email) {
         auth.authorize(password, email)
             .then((res) => {
-                if (res.token) {
-                    localStorage.setItem('token', res.token);
+                if (res) {
                     setEmail(email)
                     setLoggedIn(true)
                     navigate("/")
