@@ -9,7 +9,7 @@ function InfoTooltip({isOpen, onClose, title, imgPath}) {
                 </div>
                 <button
                     type="button" className="popup__button-close"
-                    onClick={onClose} /*без понятия почему именно эта кнопка не работает*/
+                    onClick={onClose}
                 >
                 </button>
             </div>

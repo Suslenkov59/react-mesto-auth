@@ -7,7 +7,6 @@ function AuthPage({formName, onSubmit, title, children, buttonText}) {
             <form
                 className='auth-page__form'
                 name={formName}
-                noValidate
                 onSubmit={onSubmit}
             >
                 <h2 className='auth-page__title'>{title}</h2>

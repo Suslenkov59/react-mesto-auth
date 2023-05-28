@@ -29,30 +29,30 @@ function App() {
     const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false)
     const [message, setMessage] = useState({imgPath: '', text: ''})
     const [email, setEmail] = useState('')
+    const [dataIsLoaded, setDataIsLoaded] = useState(false);
+    const [dataLoadingError, setDataLoadingError] = useState("");
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        api.getInitialCards()
-            .then((data) => {
-                setCards(data)
+        loggedIn &&
+        Promise.all([ api.getInitialCards(), api.getUserInfo()])
+            .then(([user, cards]) => {
+                setCurrentUser(user);
+                setCards(cards);
+                setDataIsLoaded(true);
             })
-            .catch((err) => console.log(err))
-    }, [])
+            .catch((err) => {
+                setDataLoadingError(`Что-то пошло не так... (${err})`);
+                console.log(err);
+            });
+    }, [loggedIn]);
 
     useEffect(() => {
-        api.getUserInfo()
-            .then((data) => {
-                setCurrentUser(data)
-            })
-            .catch((err) => console.log(err))
+        handleTokenCheck()
     }, [])
 
-    useEffect(() => {
-        tokenCheck()
-    }, [])
-
-    function tokenCheck() {
+    function handleTokenCheck() {
         const jwt = localStorage.getItem('jwt')
 
         if (jwt) {
@@ -80,13 +80,13 @@ function App() {
 
     function handleAuth(password, email) {
         auth.authorize(password, email)
-            .then((token) => {
-                auth.getContent(token)
-                    .then((res) => {
-                        setEmail(res.data.email)
-                        setLoggedIn(true)
-                        navigate("/")
-                    })
+            .then((res) => {
+                if (res.token) {
+                    localStorage.setItem('token', res.token);
+                    setEmail(email)
+                    setLoggedIn(true)
+                    navigate("/")
+                }
             })
             .catch((err) => console.log(err))
     }
@@ -112,6 +112,7 @@ function App() {
         setEditAvatarPopupOpen(false)
         setEditProfilePopupOpen(false)
         setAddPlacePopupOpen(false)
+        setIsInfoTooltipOpen(false)
         handleCardClick(null)
     }
 
@@ -186,6 +187,8 @@ function App() {
                                 onCardLike={handleCardLike}
                                 onCardDelete={handleCardDelete}
                                 cards={cards}
+                                dataIsLoaded={dataIsLoaded}
+                                dataLoadingError={dataLoadingError}
                             />
                         }
                     />

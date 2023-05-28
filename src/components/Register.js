@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 import AuthPage from './AuthPage'
 
 export default function Register({onRegister}) {
@@ -24,7 +24,7 @@ export default function Register({onRegister}) {
                 buttonText='Зарегистрироваться'
             >
                 <input
-                    type="email" name="email" id="email"
+                    type="email" name="Email" id="email"
                     className="popup__input popup__input_type_login-register"
                     placeholder="Email" minLength="6" maxLength="40" required value={email || ''}
                     onChange={handleChange}
